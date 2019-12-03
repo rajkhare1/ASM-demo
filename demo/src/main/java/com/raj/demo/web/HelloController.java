@@ -1,5 +1,6 @@
 package com.raj.demo.web;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +36,11 @@ public class HelloController {
 	@RequestMapping(value="/user_greeting", method= RequestMethod.POST)
 	public String printUserGreeting(@RequestParam String firstname,@RequestParam String lastname) {
 		return "<h1 style='color:green;text-align:center;font-family:Helvetica;'>Hello there, "+ firstname+" "+lastname+" </h1>";
+	}
+	
+	@RequestMapping(value="/orders/{id}", method=RequestMethod.GET)
+	public String getOrder(@PathVariable String id) {
+		return "<h3 style='color:blue;text-align:left;font-family:Helvetica;'>Order Id: "+ id+" </h3>";
 	}
 
 }
